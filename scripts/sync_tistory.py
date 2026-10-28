@@ -119,7 +119,7 @@ def update_readme(posts):
         "| ID | 분야 | 질문 | 티스토리 | 완료일 |",
         "|---|---|---|---|---|",
     ]
-    for post in sorted(posts, key=lambda item: int(item["id"].split("-")[1])):
+    for post in sorted(posts, key=lambda item: int(item["id"][2:])):
         rows.append(
             "| {id} | {category} | {question} | [글 보기]({url}) | {date} |".format(
                 id=escape_cell(post["id"]),
