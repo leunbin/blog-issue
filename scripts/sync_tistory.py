@@ -16,7 +16,7 @@ DATA_PATH = Path("data/published-posts.json")
 README_PATH = Path("README.md")
 START_MARKER = "<!-- TISTORY_POSTS_START -->"
 END_MARKER = "<!-- TISTORY_POSTS_END -->"
-ID_PATTERN = re.compile(r"^(CS\d{3,})\b", re.IGNORECASE)
+ID_PATTERN = re.compile(r"^\[(CS\d{3,})\]", re.IGNORECASE)
 
 
 def request_json(url, method="GET", payload=None):
