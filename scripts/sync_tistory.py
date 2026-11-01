@@ -19,6 +19,11 @@ END_MARKER = "<!-- TISTORY_POSTS_END -->"
 ID_PATTERN = re.compile(r"^\[(CS\d{3,})\]", re.IGNORECASE)
 
 
+def extract_study_id(value):
+    match = ID_PATTERN.search(value or "")
+    return f"CS{match.group(1)}".upper() if match else None
+
+
 def request_json(url, method="GET", payload=None):
     headers = {
         "Accept": "application/vnd.github+json",
@@ -50,12 +55,13 @@ def fetch_rss_items():
         title = (item.findtext("title") or "").strip()
         link = (item.findtext("link") or "").strip()
         published = (item.findtext("pubDate") or "").strip()
-        match = ID_PATTERN.match(title)
-        if not match or not link:
+        study_id = extract_study_id(title)
+        print(f"RSS item: {title} -> {study_id or 'no CS id'}")
+        if not study_id or not link:
             continue
         items.append(
             {
-                "id": match.group(1).upper(),
+                "id": study_id,
                 "title": title,
                 "url": link,
                 "published": published,
@@ -78,9 +84,9 @@ def fetch_study_issues():
         for issue in batch:
             if "pull_request" in issue:
                 continue
-            match = ID_PATTERN.match(issue.get("title", ""))
-            if match:
-                issues[match.group(1).upper()] = issue
+            study_id = extract_study_id(issue.get("title", ""))
+            if study_id:
+                issues[study_id] = issue
 
         if len(batch) < 100:
             break
