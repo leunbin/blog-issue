@@ -1,6 +1,12 @@
 name: Sync Tistory Posts
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/sync_tistory.py"
+      - ".github/workflows/sync-tistory.yml"
   schedule:
     - cron: "17 */3 * * *"
   workflow_dispatch:
