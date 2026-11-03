@@ -19,6 +19,7 @@
 | ID | 분야 | 질문 | 티스토리 | 완료일 |
 |---|---|---|---|---|
 | CS001 | 운영체제 | 페이지 교체 알고리즘: FIFO와 LRU | [글 보기](https://eunkongee.tistory.com/106) | 2026-11-01 |
+| CS002 | 네트워크 | TCP 3-way handshake와 연결 수립 | [글 보기](https://eunkongee.tistory.com/107) | 2026-11-02 |
 <!-- TISTORY_POSTS_END -->
 
 ## 분야

@@ -6,5 +6,13 @@
     "url": "https://eunkongee.tistory.com/106",
     "published_at": "2026-11-01",
     "issue_number": 1
+  },
+  {
+    "id": "CS002",
+    "category": "네트워크",
+    "question": "TCP 3-way handshake와 연결 수립",
+    "url": "https://eunkongee.tistory.com/107",
+    "published_at": "2026-11-02",
+    "issue_number": 2
   }
 ]
